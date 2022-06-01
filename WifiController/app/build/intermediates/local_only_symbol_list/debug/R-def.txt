@@ -1,0 +1,33 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable down
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable layout_start_stop
+drawable left
+drawable right
+drawable start
+drawable stop
+drawable trash
+drawable up
+id btn_down
+id btn_left
+id btn_right
+id btn_start
+id btn_up
+id constraint1
+id splash_progress
+id tv_percent
+layout activity_main
+layout activity_splash
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.WifiController
