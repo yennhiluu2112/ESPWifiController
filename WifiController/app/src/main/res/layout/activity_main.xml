@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".MainActivity"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tv_percent"
@@ -16,80 +16,30 @@
         android:autoSizeMinTextSize="20dp"
         android:autoSizeStepGranularity="1sp"
         android:autoSizeTextType="uniform"
+        android:gravity="center"
         android:text="% Dustbin"
         android:textColor="@color/white"
-        android:gravity="center"
-        app:layout_constraintWidth_percent="1"
         app:layout_constraintBottom_toTopOf="@+id/btn_up"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintWidth_percent="1" />
 
     <ImageView
         android:id="@+id/btn_up"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/up"
-        app:layout_constraintBottom_toTopOf="@+id/constraint1"
-        app:layout_constraintWidth_percent="0.1"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_percent"/>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraint1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/btn_down"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_up">
-
-        <ImageView
-            android:id="@+id/btn_left"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/left"
-            app:layout_constraintEnd_toStartOf="@+id/btn_start"
-            app:layout_constraintWidth_percent="0.1"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ImageView
-            android:id="@+id/btn_start"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintWidth_percent="0.16"
-            android:background="@drawable/layout_start_stop"
-            app:layout_constraintEnd_toStartOf="@+id/btn_right"
-            app:layout_constraintStart_toEndOf="@+id/btn_left"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/stop"
-            android:padding="40dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ImageView
-            android:id="@+id/btn_right"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/right"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.1"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintStart_toEndOf="@+id/btn_start"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
-
-    </android.support.constraint.ConstraintLayout>
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_percent"
+        app:layout_constraintWidth_percent="0.12" />
 
     <ImageView
         android:id="@+id/btn_down"
@@ -97,11 +47,58 @@
         android:layout_height="0dp"
         android:src="@drawable/down"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.1"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toBottomOf="@+id/constraint1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_up"
+        app:layout_constraintTop_toTopOf="1:1"
+        app:layout_constraintWidth_percent="0.12" />
+
+
+    <ImageView
+        android:id="@+id/btn_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/btn_right"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintWidth_percent="0.12" />
+
+    <ImageView
+        android:id="@+id/btn_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintWidth_percent="0.12" />
+
+    <ImageView
+        android:id="@+id/btn_start"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/layout_start_stop"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060000002"
+        app:layout_constraintWidth_percent="0.1" />
 
 
 </android.support.constraint.ConstraintLayout>
