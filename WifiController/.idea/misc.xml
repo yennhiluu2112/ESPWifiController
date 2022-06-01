@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Nam3_HK2/VDK/ESPWifiController/WifiController/app/src/main/res/drawable/bg.xml" value="0.188" />
         <entry key="..\:/Nam3_HK2/VDK/ESPWifiController/WifiController/app/src/main/res/drawable/layout_start_stop.xml" value="0.191" />
-        <entry key="..\:/Nam3_HK2/VDK/ESPWifiController/WifiController/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Nam3_HK2/VDK/ESPWifiController/WifiController/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Nam3_HK2/VDK/ESPWifiController/WifiController/app/src/main/res/layout/activity_splash.xml" value="0.2" />
       </map>
     </option>
