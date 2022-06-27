@@ -764,7 +764,10 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable bg
 drawable down
+drawable ic_dut
+drawable ic_khoa
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable layout_start_stop
@@ -869,7 +872,6 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id constraint1
 id content
 id contentPanel
 id cos
@@ -913,6 +915,8 @@ id groups
 id home
 id homeAsUp
 id honorRequest
+id ic_dut
+id ic_khoa
 id icon
 id icon_group
 id ifRoom
@@ -922,6 +926,8 @@ id image
 id info
 id invisible
 id italic
+id iv_start
+id iv_stop
 id jumpToEnd
 id jumpToStart
 id layout

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "D:\\Nam3_HK2\\VDK\\ESPWifiController\\WifiController\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_splash.xml",
-        "source": "D:\\Nam3_HK2\\VDK\\ESPWifiController\\WifiController\\app\\src\\main\\res\\layout\\activity_splash.xml"
+        "merged": "C:\\Users\\tuanpc\\AndroidStudioProjects\\ESPWifiController\\WifiController\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\tuanpc\\AndroidStudioProjects\\ESPWifiController\\WifiController\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
-        "merged": "D:\\Nam3_HK2\\VDK\\ESPWifiController\\WifiController\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
-        "source": "D:\\Nam3_HK2\\VDK\\ESPWifiController\\WifiController\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\tuanpc\\AndroidStudioProjects\\ESPWifiController\\WifiController\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\tuanpc\\AndroidStudioProjects\\ESPWifiController\\WifiController\\app\\src\\main\\res\\layout\\activity_main.xml"
     }
 ]

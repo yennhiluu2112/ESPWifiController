@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WifiController.iml" filepath="$PROJECT_DIR$/.idea/modules/WifiController.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WifiController.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WifiController.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WifiController.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WifiController.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WifiController.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WifiController.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WifiController.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WifiController.app.unitTest.iml" />
     </modules>
   </component>
 </project>

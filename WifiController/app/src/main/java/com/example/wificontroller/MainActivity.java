@@ -2,6 +2,8 @@ package com.example.wificontroller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,10 +17,13 @@ import io.socket.emitter.Emitter;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     Socket socket;
-    String SERVER_NODE = "http://192.168.1.14:3000";
+    String SERVER_NODE = "http://172.20.10.4:5000";
     boolean isStart = false;
-    int first_interval = 200;
-    int normal_interval = 100;
+    int first_interval = 120;
+    int normal_interval = 120;
+    boolean onRight, onLeft, onUp, onDown = false;
+    double max_height = 13;
+    double ratio = 288.75;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,21 +39,112 @@ public class MainActivity extends AppCompatActivity {
 
     private void SetupView() {
 
-        binding.btnRight.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
-            socket.emit("direct", "right");
-        }));
+//        binding.btnRight.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
+//            socket.emit("direct", "right");
+//        }));
 
-        binding.btnLeft.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
-            socket.emit("direct", "left");
-        }));
+        binding.btnRight.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    onRight = true;
 
-        binding.btnDown.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
-            socket.emit("direct", "backward");
-        }));
+                    socket.emit("direct", "right");
 
-        binding.btnUp.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
-            socket.emit("direct", "forward");
-        }));
+                    return true;
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    onRight =false;
+
+                    if(onUp){
+                        socket.emit("direct", "forward");
+                    }else if(onDown){
+                        socket.emit("direct", "backward");
+                    }else {
+                        socket.emit("direct", "stop");
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        binding.btnLeft.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    onLeft = true;
+                    socket.emit("direct", "left");
+                    return true;
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    onLeft = false;
+                    if(onUp){
+                        socket.emit("direct", "forward");
+                    }else if(onDown){
+                        socket.emit("direct", "backward");
+                    }else {
+                        socket.emit("direct", "stop");
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        binding.btnUp.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    onUp = true;
+                    socket.emit("direct", "forward");
+                    return true;
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    onUp = false;
+                    if(onRight){
+                        socket.emit("direct", "right");
+                    }else if(onLeft){
+                        socket.emit("direct", "left");
+                    }else {
+                        socket.emit("direct", "stop");
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        binding.btnDown.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    onDown = true;
+                    socket.emit("direct", "backward");
+                    return true;
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    onDown = false;
+                    if(onRight){
+                        socket.emit("direct", "right");
+                    }else if(onLeft){
+                        socket.emit("direct", "left");
+                    }else {
+                        socket.emit("direct", "stop");
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
+//        binding.btnLeft.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
+//            socket.emit("direct", "left");
+//        }));
+//
+//        binding.btnDown.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
+//            socket.emit("direct", "backward");
+//        }));
+//
+//        binding.btnUp.setOnTouchListener(new RepeatListener(first_interval, normal_interval, v -> {
+//            socket.emit("direct", "forward");
+//        }));
 
         binding.btnStart.setOnClickListener(v -> {
             if(isStart){
@@ -99,7 +195,18 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    String json = String.valueOf(args[0]);
+                    double val = Double.parseDouble(String.valueOf(args[0]));
+
+                    if(val > max_height) {
+                        binding.tvPercent.setText("Thể tích còn lại: 100%");
+                    } else if(val <= max_height && val >= 1){
+                        double remain_volume = val * ratio;
+                        double max_volume = max_height * ratio;
+
+                        double percent = (remain_volume/max_volume)*100;
+                        binding.tvPercent.setText("Thể tích còn lại: " + Math.round(percent) +"%");
+                    }
+
                 }
             });
         }

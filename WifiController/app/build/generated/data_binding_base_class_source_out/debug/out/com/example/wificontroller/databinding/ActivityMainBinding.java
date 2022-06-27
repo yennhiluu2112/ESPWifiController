@@ -36,22 +36,34 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView btnUp;
 
   @NonNull
-  public final ConstraintLayout constraint1;
+  public final ImageView icDut;
+
+  @NonNull
+  public final ImageView icKhoa;
+
+  @NonNull
+  public final ImageView ivStart;
+
+  @NonNull
+  public final ImageView ivStop;
 
   @NonNull
   public final TextView tvPercent;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnDown,
       @NonNull ImageView btnLeft, @NonNull ImageView btnRight, @NonNull ImageView btnStart,
-      @NonNull ImageView btnUp, @NonNull ConstraintLayout constraint1,
-      @NonNull TextView tvPercent) {
+      @NonNull ImageView btnUp, @NonNull ImageView icDut, @NonNull ImageView icKhoa,
+      @NonNull ImageView ivStart, @NonNull ImageView ivStop, @NonNull TextView tvPercent) {
     this.rootView = rootView;
     this.btnDown = btnDown;
     this.btnLeft = btnLeft;
     this.btnRight = btnRight;
     this.btnStart = btnStart;
     this.btnUp = btnUp;
-    this.constraint1 = constraint1;
+    this.icDut = icDut;
+    this.icKhoa = icKhoa;
+    this.ivStart = ivStart;
+    this.ivStop = ivStop;
     this.tvPercent = tvPercent;
   }
 
@@ -112,9 +124,27 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.constraint1;
-      ConstraintLayout constraint1 = ViewBindings.findChildViewById(rootView, id);
-      if (constraint1 == null) {
+      id = R.id.ic_dut;
+      ImageView icDut = ViewBindings.findChildViewById(rootView, id);
+      if (icDut == null) {
+        break missingId;
+      }
+
+      id = R.id.ic_khoa;
+      ImageView icKhoa = ViewBindings.findChildViewById(rootView, id);
+      if (icKhoa == null) {
+        break missingId;
+      }
+
+      id = R.id.iv_start;
+      ImageView ivStart = ViewBindings.findChildViewById(rootView, id);
+      if (ivStart == null) {
+        break missingId;
+      }
+
+      id = R.id.iv_stop;
+      ImageView ivStop = ViewBindings.findChildViewById(rootView, id);
+      if (ivStop == null) {
         break missingId;
       }
 
@@ -125,7 +155,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ConstraintLayout) rootView, btnDown, btnLeft, btnRight,
-          btnStart, btnUp, constraint1, tvPercent);
+          btnStart, btnUp, icDut, icKhoa, ivStart, ivStop, tvPercent);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
